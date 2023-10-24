@@ -18,11 +18,9 @@ Before running the project, make sure you have the following components installe
 
 2. Configure your SQL Server connection details in the `connect_sqlsrv.php` file. Make sure to set the correct server name, username, and password.
 
-3. Create a database in your SQL Server instance, and configure the database name in `connect.php`.
+3. Create a database in your SQL Server instance, and configure the database name in `connect_sqlsrv.php`.
 
-4. Import the SQL schema provided in `database_schema.sql` into your SQL Server database. This will create the necessary table for data storage.
-
-5. Run the project by accessing the appropriate PHP files in your web browser.
+4. Run the project by accessing the appropriate PHP files in your web browser.
 
 ## Usage
 
@@ -32,7 +30,7 @@ Before running the project, make sure you have the following components installe
 
 ## Folder Structure
 
-- `connect.php`: Database connection script for SQL Server.
+- `connect_sqlsrv.php`: Database connection script for SQL Server.
 
 - `insert.php`: Script for inserting data into the SQL Server database.
 
