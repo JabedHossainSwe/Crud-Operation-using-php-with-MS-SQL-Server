@@ -46,7 +46,4 @@ Before running the project, make sure you have the following components installe
 
 Your feedback and contributions to this project are highly appreciated. If you encounter any issues or have suggestions for improvement, please open an issue or submit a pull request.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
