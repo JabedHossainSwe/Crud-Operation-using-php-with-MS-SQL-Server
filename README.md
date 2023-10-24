@@ -18,7 +18,7 @@ Before running the project, make sure you have the following components installe
 
 2. Configure your SQL Server connection details in the `connect_sqlsrv.php` file. Make sure to set the correct server name, username, and password.
 
-3. Create a database in your SQL Server instance, and configure the database name in `connect_sqlsrv.php`.
+3. Create a database in your SQL Server instance, and configure the database name in `connect.php`.
 
 4. Import the SQL schema provided in `database_schema.sql` into your SQL Server database. This will create the necessary table for data storage.
 
@@ -26,19 +26,17 @@ Before running the project, make sure you have the following components installe
 
 ## Usage
 
-- **Insert Data**: Use the `insert_sqlsrv.php` script to insert data into the SQL Server database. The script allows you to insert names, including Arabic names, into the database.
+- **Insert Data**: Use the `insert.php` script to insert data into the SQL Server database. The script allows you to insert names, including Arabic names, into the database.
 
-- **List Data**: The `list_sqlsrv.php` script retrieves and displays the data from the SQL Server database in a tabular format.
+- **List Data**: The `index.php` script retrieves and displays the data from the SQL Server database in a tabular format.
 
 ## Folder Structure
 
-- `connect_sqlsrv.php`: Database connection script for SQL Server.
+- `connect.php`: Database connection script for SQL Server.
 
-- `insert_sqlsrv.php`: Script for inserting data into the SQL Server database.
+- `insert.php`: Script for inserting data into the SQL Server database.
 
-- `list_sqlsrv.php`: Script for listing and displaying data from the SQL Server database.
-
-- `database_schema.sql`: SQL schema for creating the database and table.
+- `index.php`: Script for listing and displaying data from the SQL Server database.
 
 - `README.md`: You are here.
 
