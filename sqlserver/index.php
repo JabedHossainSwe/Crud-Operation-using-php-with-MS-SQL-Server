@@ -1,7 +1,6 @@
 <?php
-include 'connect_sqlsrv.php'; // Include the database connection script
+include 'connect_sqlsrv.php';
 
-// Fetch data from the table
 $sql = "SELECT name, name_ar FROM users";
 $stmt = $conn->query($sql);
 
