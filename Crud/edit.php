@@ -1,5 +1,5 @@
 <?php
-include 'config/connect_sqlsrv.php';
+include '../config/connect_sqlsrv.php';
 
 if (isset($_GET['id'])) {
     $student_id = $_GET['id'];

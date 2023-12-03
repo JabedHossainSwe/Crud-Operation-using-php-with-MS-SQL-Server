@@ -5,36 +5,20 @@
         <meta charset="UTF-8">
         <title>Student Data</title>
 
-        <!-- Bootstrap CSS -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Font Awesome CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-        <!-- DataTables CSS -->
         <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
 
-
-        <!-- jsPDF library -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
-        <!-- Your custom JS file -->
-        <script src="js/index.js"></script>
-
-        <!-- jQuery and DataTables JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
-        <!-- Bootstrap JS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <!-- Your custom JS file -->
+        <!-- Add this line to include jsPDF from a CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
         <script src="js/index.js"></script>
 
-        <!-- Your custom CSS file -->
         <link rel="stylesheet" href="./css/style.css">
-
-        <!-- Additional styles for hiding elements during print -->
         <style>
                 @media print {
                         .no-print {
@@ -43,6 +27,8 @@
                 }
         </style>
 </head>
+
+
 
 <body>
         <div class="container mt-5">
@@ -61,6 +47,7 @@
                         </button>
                 </div>
 
+
                 <div class="btn-group no-print">
                         <button type="button" onclick="window.print()" class="btn btn-secondary">
                                 Print
@@ -78,7 +65,7 @@
                 $(document).ready(function () {
                         // Initialize DataTable
                         var table = $('#studentTable').DataTable({
-                                "paging": false,
+                                "paging": true,
                                 "searching": true,
                                 "ordering": true,
                                 "info": true,
@@ -92,17 +79,23 @@
 
                         // Function to generate PDF
                         window.generatePDF = function () {
-                                // Create jsPDF instance
-                                const pdf = new jsPDF();
+                                var pdf = new jspdf.jsPDF(); // Use "new jspdf.jsPDF()" instead
 
-                                // Add content to the PDF using autoTable
-                                pdf.autoTable({ html: '#studentTable' });
+                                // Get the HTML content of the table
+                                const tableHTML = $('#studentTable').html();
 
-                                // Save the PDF
+                                // Convert HTML to PDF using autoTable
+                                pdf.autoTable({
+                                        html: tableHTML
+                                });
+
+                                // Save the PDF with a specific filename
                                 pdf.save('Student_Data.pdf');
                         };
                 });
         </script>
+
+
 </body>
 
 </html>

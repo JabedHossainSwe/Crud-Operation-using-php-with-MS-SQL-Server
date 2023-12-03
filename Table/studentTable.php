@@ -8,7 +8,7 @@
 
 <body>
   <div class="container mt-4">
- 
+
     <table id="studentTable" class="table table-striped table-bordered student-table">
       <thead class="thead-dark">
         <tr>
@@ -49,8 +49,9 @@
             echo "<td>" . $row['grade'] . "</td>";
             echo "<td>" . $row['enrolment_date'] . "</td>";
             echo "<td>
-        <button class='btn btn-primary btn-sm view-details' data-id='" . $row['student_id'] . "'>View</button>
-
+      
+        <a class='btn btn-primary btn-sm' href='crud/view.php?id=" . $row['student_id'] . "'>View</a> 
+        <a class='btn btn-warning btn-sm' href='crud/edit.php?id=" . $row['student_id'] . "'>Edit</a>
         <a class='btn btn-danger btn-sm' href='crud/delete.php?id=" . $row['student_id'] . "'>Delete</a>
       </td>";
 
