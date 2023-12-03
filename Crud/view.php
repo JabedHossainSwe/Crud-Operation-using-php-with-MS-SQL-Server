@@ -1,5 +1,4 @@
 <?php
-
 include '../config/connect_sqlsrv.php';
 
 if (isset($_GET['id'])) {
@@ -14,10 +13,11 @@ if (isset($_GET['id'])) {
     // Return the data as JSON
     header('Content-Type: application/json');
     echo json_encode($student);
+    exit(); // Stop further execution
   } else {
-    echo "Student not found.";
+    echo json_encode(array("error" => "Student not found"));
   }
 } else {
-  echo "Student ID not provided.";
+  echo json_encode(array("error" => "Student ID not provided"));
 }
 ?>
