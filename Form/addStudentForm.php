@@ -1,3 +1,5 @@
+<?php include 'Crud/view_modal.php'; ?>
+
 <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">

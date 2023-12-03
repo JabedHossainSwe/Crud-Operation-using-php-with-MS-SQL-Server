@@ -18,6 +18,11 @@ if ($result === false) {
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
         <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/index.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
 </head>
 
 <body>
@@ -39,12 +44,15 @@ if ($result === false) {
 
         </div>
 
-
         <script>
                 $(document).ready(function () {
                         $('#studentTable').DataTable();
                 });
         </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 
         <!-- Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

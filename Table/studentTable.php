@@ -38,10 +38,9 @@
           echo "<td>" . $row['grade'] . "</td>";
           echo "<td>" . $row['enrolment_date'] . "</td>";
           echo "<td>
-        <button class='btn btn-primary btn-sm'>View</button>
-        <button class='btn btn-warning btn-sm'>Edit</button>
-        <button class='btn btn-danger btn-sm'>Delete</button>
-      </td>";
+            <button class='btn btn-primary btn-sm view-details' data-id='" . $row['student_id'] . "'>View</button>
+          </td>";
+
 
           echo "</tr>";
         }
