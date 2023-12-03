@@ -32,7 +32,12 @@ h2 {
   text-align: center;
 }
 
-.table {
+
+#studentTable {
+  margin-left: -280px !important;
+  width: 150% !important;
+}
+
+.print-btn{
   margin-left: -280px;
-  width: 150%;
 }

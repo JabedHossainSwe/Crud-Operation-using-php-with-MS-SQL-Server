@@ -8,7 +8,8 @@
 
 <body>
   <div class="container mt-4">
-    <table class="table table-striped table-bordered student-table">
+ 
+    <table id="studentTable" class="table table-striped table-bordered student-table">
       <thead class="thead-dark">
         <tr>
           <th>Student ID</th>
@@ -28,7 +29,7 @@
       </thead>
       <tbody>
         <?php
-        include '../config/connect_sqlsrv.php';
+        include 'config/connect_sqlsrv.php';
         $sql = "SELECT * FROM Student";
         $result = $conn->query($sql);
 
@@ -48,9 +49,10 @@
             echo "<td>" . $row['grade'] . "</td>";
             echo "<td>" . $row['enrolment_date'] . "</td>";
             echo "<td>
-            <button class='btn btn-primary btn-sm view-details' data-id='" . $row['student_id'] . "'>View</button>
-          </td>";
+        <button class='btn btn-primary btn-sm view-details' data-id='" . $row['student_id'] . "'>View</button>
 
+        <a class='btn btn-danger btn-sm' href='crud/delete.php?id=" . $row['student_id'] . "'>Delete</a>
+      </td>";
 
             echo "</tr>";
           }

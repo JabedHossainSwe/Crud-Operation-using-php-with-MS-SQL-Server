@@ -30,9 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':mother_name', $mother_name);
         $stmt->bindParam(':grade', $grade);
 
-        if ($stmt->execute()) {
-            echo "New record created successfully";
-        } else {
+        if (!$stmt->execute()) {
             echo "Error executing statement";
         }
     } catch (PDOException $e) {

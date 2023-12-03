@@ -49,7 +49,7 @@
               placeholder="Mother's Name" required>
 
             <label for="Grade">Grade:</label>
-            <input type="number" class="form-control" id="Grade" name="Grade" autocomplete="off" required>
+            <input type="number" class="form-control" id="grade" name="grade" autocomplete="off" required>
 
           </div>
 
