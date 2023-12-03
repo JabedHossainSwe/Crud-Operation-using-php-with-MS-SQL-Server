@@ -1,0 +1,38 @@
+body {
+  margin: auto;
+  padding: auto;
+}
+
+h2 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.add-btn {
+  margin-left: 1235px;
+  width: 175px;
+}
+
+.modal-dialog {
+  max-width: 800px;
+  margin: 1.75rem auto;
+}
+
+.modal-content {
+  height: auto;
+}
+
+.modal-title {
+  text-align: center;
+  margin-left: 320px;
+  font-weight: bold;
+}
+
+.modal_bottom_button {
+  text-align: center;
+}
+
+.table {
+  margin-left: -280px;
+  width: 150%;
+}
