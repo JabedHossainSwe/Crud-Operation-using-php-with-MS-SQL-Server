@@ -13,8 +13,9 @@
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <!-- Add this line to include jsPDF from a CDN -->
+        <!-- Add these lines to include jsPDF and its autoTable plugin from a CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable"></script>
 
         <script src="js/index.js"></script>
 
@@ -27,8 +28,6 @@
                 }
         </style>
 </head>
-
-
 
 <body>
         <div class="container mt-5">
@@ -46,7 +45,6 @@
                                 Download PDF
                         </button>
                 </div>
-
 
                 <div class="btn-group no-print">
                         <button type="button" onclick="window.print()" class="btn btn-secondary">
@@ -79,14 +77,28 @@
 
                         // Function to generate PDF
                         window.generatePDF = function () {
-                                var pdf = new jspdf.jsPDF(); // Use "new jspdf.jsPDF()" instead
+                                var pdf = new jsPDF();
+                                var columns = [];
+                                var data = [];
 
-                                // Get the HTML content of the table
-                                const tableHTML = $('#studentTable').html();
+                                // Get column names
+                                table.columns().every(function () {
+                                        columns.push(this.header().textContent.trim());
+                                });
 
-                                // Convert HTML to PDF using autoTable
+                                // Get table data
+                                table.rows().every(function () {
+                                        var row = [];
+                                        this.data().each(function (cell, i) {
+                                                row.push(cell);
+                                        });
+                                        data.push(row);
+                                });
+
+                                // Add content to the PDF
                                 pdf.autoTable({
-                                        html: tableHTML
+                                        head: [columns],
+                                        body: data,
                                 });
 
                                 // Save the PDF with a specific filename
@@ -94,7 +106,6 @@
                         };
                 });
         </script>
-
 
 </body>
 

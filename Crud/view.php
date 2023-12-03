@@ -90,9 +90,9 @@
             <input type="text" class="form-control" id="grade" value="<?= $student['grade'] ?>" readonly>
           </div>
 
-          <!-- Additional actions or buttons if needed -->
           <a href="edit.php?id=<?= $student_id ?>" class="btn btn-primary">Edit</a>
           <a href="delete.php?id=<?= $student_id ?>" class="btn btn-danger">Delete</a>
+          <a class='btn btn-secondary' href='../index.php '>Exit</a>
         </form>
       </div>
       <?php
