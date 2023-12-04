@@ -6,18 +6,18 @@
         <title>Student Data</title>
 
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-        <!-- Add these lines to include jsPDF and its autoTable plugin from a CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.0/jszip.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.print.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable"></script>
-
-        <script src="js/index.js"></script>
 
         <link rel="stylesheet" href="./css/style.css">
         <style>
@@ -26,10 +26,23 @@
                                 display: none;
                         }
                 }
+
+                /* English style */
+                .english {
+                        direction: ltr;
+                        text-align: left;
+                }
+
+                /* Arabic style */
+                .arabic {
+                        direction: rtl;
+                        text-align: right;
+                        font-family: 'Arial', sans-serif;
+                }
         </style>
 </head>
 
-<body>
+<body class="english">
         <div class="container mt-5">
                 <h2>Student Data</h2>
 
@@ -41,16 +54,12 @@
                 </div>
 
                 <div class="btn-group no-print">
-                        <button type="button" onclick="generatePDF()" class="btn btn-secondary">
-                                Download PDF
-                        </button>
-                </div>
-
-                <div class="btn-group no-print">
                         <button type="button" onclick="window.print()" class="btn btn-secondary">
                                 Print
                         </button>
                 </div>
+
+                <button class="btn btn-primary" id="languageButton" onclick="switchLanguage()">Switch Language</button>
 
                 <!-- Bootstrap datatable for showing student's info -->
                 <?php include './Table/studentTable.php'; ?>
@@ -61,7 +70,6 @@
 
         <script>
                 $(document).ready(function () {
-                        // Initialize DataTable
                         var table = $('#studentTable').DataTable({
                                 "paging": true,
                                 "searching": true,
@@ -69,13 +77,20 @@
                                 "info": true,
                                 "language": {
                                         "paginate": {
-                                                "previous": '<i class="fas fa-angle-double-left"></i>',
-                                                "next": '<i class="fas fa-angle-double-right"></i>'
+                                                "previous": '<i class="fa fa-angle-double-left"></i>',
+                                                "next": '<i class="fa fa-angle-double-right"></i>'
                                         }
-                                }
+                                },
+                                "buttons": [{
+                                        extend: 'pdfHtml5',
+                                        text: 'Export PDF',
+                                        title: 'Student Data',
+                                        exportOptions: {
+                                                columns: ':visible'
+                                        }
+                                }]
                         });
 
-                        // Function to generate PDF
                         window.generatePDF = function () {
                                 var pdf = new jsPDF();
                                 var columns = [];
@@ -105,6 +120,16 @@
                                 pdf.save('Student_Data.pdf');
                         };
                 });
+        </script>
+
+        <script>
+                function switchLanguage() {
+                        var elements = document.querySelectorAll('.english, .arabic');
+                        elements.forEach(function (element) {
+                                element.classList.toggle('english');
+                                element.classList.toggle('arabic');
+                        });
+                }
         </script>
 
 </body>

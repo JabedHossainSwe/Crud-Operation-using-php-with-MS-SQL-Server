@@ -90,6 +90,7 @@ if (isset($_GET['id'])) {
 
                 <button type="submit" class="btn btn-primary form-control">Update</button> <br>
                 <a class='btn btn-secondary form-control' href='../index.php '>Exit</a>
+                
             </form>
             <script src=" https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         </body>
