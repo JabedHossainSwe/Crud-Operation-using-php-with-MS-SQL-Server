@@ -51,6 +51,7 @@
                                 data-target="#addStudentModal">
                                 Add Student
                         </button>
+
                 </div>
 
                 <div class="btn-group no-print">
@@ -58,8 +59,10 @@
                                 Print
                         </button>
                 </div>
+                <!-- <button class="btn btn-primary" id="languageButton" onclick="switchLanguage()">English / Arabic</button> -->
 
-                <button class="btn btn-primary" id="languageButton" onclick="switchLanguage()">Switch Language</button>
+                <button onclick="switchLanguage()">Switch Language</button>
+                <p class="english" data-english="Hello" data-arabic="مرحبا">Hello</p>
 
                 <!-- Bootstrap datatable for showing student's info -->
                 <?php include './Table/studentTable.php'; ?>
@@ -125,12 +128,30 @@
         <script>
                 function switchLanguage() {
                         var elements = document.querySelectorAll('.english, .arabic');
+
                         elements.forEach(function (element) {
-                                element.classList.toggle('english');
-                                element.classList.toggle('arabic');
+                                if (element.classList.contains('english')) {
+                                        var arabicContent = element.dataset.arabic;
+                                        if (arabicContent) {
+                                                element.textContent = arabicContent;
+                                        }
+                                        element.classList.remove('english');
+                                        element.classList.add('arabic');
+                                } else if (element.classList.contains('arabic')) {
+                                        var englishContent = element.dataset.english;
+                                        if (englishContent) {
+                                                element.textContent = englishContent;
+                                        }
+                                        element.classList.remove('arabic');
+                                        element.classList.add('english');
+                                }
                         });
+
+                        // Refresh DataTables after changing the language classes
+                        $('#studentTable').DataTable().draw();
                 }
         </script>
+
 
 </body>
 
