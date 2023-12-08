@@ -44,9 +44,20 @@
 
 <body class="english">
         <div class="container mt-5">
-                <h2>Student Data</h2>
+                <!-- <h2>Student Data</h2> -->
+                <h2 class="english" data-english="Student Data" data-arabic="بيانات الطالب">Student Data</h2>
 
-                <div class="add-btn">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addStudentModal"
+                        data-english="Add Student" data-arabic="إضافة طالب">Add Student</button>
+
+                <button type="button" onclick="window.print()" class="btn btn-secondary" data-english="Print"
+                        data-arabic="طباعة">Print</button>
+
+
+
+
+
+                <!-- <div class="add-btn">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#addStudentModal">
                                 Add Student
@@ -58,7 +69,7 @@
                         <button type="button" onclick="window.print()" class="btn btn-secondary">
                                 Print
                         </button>
-                </div>
+                </div> -->
                 <!-- <button class="btn btn-primary" id="languageButton" onclick="switchLanguage()">English / Arabic</button> -->
 
                 <button onclick="switchLanguage()">Switch Language</button>
@@ -126,6 +137,7 @@
         </script>
 
         <script>
+
                 function switchLanguage() {
                         var elements = document.querySelectorAll('.english, .arabic');
 
@@ -148,8 +160,11 @@
                         });
 
                         // Refresh DataTables after changing the language classes
-                        $('#studentTable').DataTable().draw();
+                        var table = $('#studentTable').DataTable();
+                        table.columns().header().to$().trigger('update.dt'); // Update headers
+                        table.draw(); // Redraw table
                 }
+
         </script>
 
 

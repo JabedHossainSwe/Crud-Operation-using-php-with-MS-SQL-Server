@@ -24,8 +24,6 @@ Before running the project, make sure you have the following components installe
 
 ## Usage
 
-- **Insert Data**: Use the `insert.php` script to insert data into the SQL Server database. The script allows you to insert names, including Arabic names, into the database.
-
 - **List Data**: The `index.php` script retrieves and displays the data from the SQL Server database in a tabular format.
 
 ## Folder Structure
