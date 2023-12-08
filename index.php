@@ -62,7 +62,7 @@
                 <!-- <button class="btn btn-primary" id="languageButton" onclick="switchLanguage()">English / Arabic</button> -->
 
                 <button onclick="switchLanguage()">Switch Language</button>
-                <p class="english" data-english="Hello" data-arabic="مرحبا">Hello</p>
+
 
                 <!-- Bootstrap datatable for showing student's info -->
                 <?php include './Table/studentTable.php'; ?>
